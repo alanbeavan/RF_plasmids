@@ -13,7 +13,9 @@ def main():
     lines = mod.get_file_data(infile)
     newlines = []
     for i in range(len(lines)):
-        if i%4 < 2:
+        if i%4 == 0:
+            newlines.append(">" + lines[i])
+        elif i%4 == 1:
             newlines.append(lines[i])
     with open(outfile, "w", encoding = "utf8") as out:
         out.write("\n".join(newlines) + "\n")
